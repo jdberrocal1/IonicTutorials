@@ -1,10 +1,11 @@
-angular.module('App', ['ionic'])
+var db=null;
+angular.module('App', ['ionic','ngCordova'])
 
 .config(function($urlRouterProvider) {
-  $urlRouterProvider.otherwise('/tabs/quotes');
+  $urlRouterProvider.otherwise('/tabs/todo');
 })
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$cordovaSQLite) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -12,5 +13,9 @@ angular.module('App', ['ionic'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+    db = $cordovaSQLite.openDB("my.db");
+        $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS task (id integer primary key, task text)");
+    });
+
   });
-});
+

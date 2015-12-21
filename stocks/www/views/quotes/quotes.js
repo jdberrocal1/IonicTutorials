@@ -14,7 +14,7 @@ angular.module('App')
     });
 })
 
-.controller('QuotesController', function($scope, $ionicPopup, $ionicLoading, LocalStorageService, QuotesService) {
+.controller('QuotesController', function($scope, $ionicPopup, $ionicLoading, LocalStorageService, QuotesService,$location) {
 
   // Get symbols from localstorage, set default values
   $scope.symbols = LocalStorageService.get('quotes', ['YHOO', 'AAPL', 'GOOG', 'MSFT', 'FB', 'TWTR']);
@@ -85,6 +85,12 @@ angular.module('App')
     }
     return '';
   };
+
+  $scope.goTodo=function goTodo(){
+    $location.path('/tabs/todo');
+    console.log('go todo');
+  }
+
   // Start by showing the loader the first time, and request the quotes
   $ionicLoading.show();
   $scope.getQuotes();

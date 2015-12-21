@@ -5,7 +5,7 @@ angular.module('App')
   // Create a quotes service to simplify how to load data from Yahoo Finance
   var QuotesService = {};
 
-  QuotesService.get = function(symbols) {
+  QuotesService.get = function get(symbols) {
     // Convert the symbols array into the format required for YQL
     symbols = symbols.map(function(symbol) {
       return "'" + symbol.toUpperCase() + "'";
