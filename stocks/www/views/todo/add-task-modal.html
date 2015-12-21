@@ -6,16 +6,16 @@
     <ion-header-bar class="bar-balanced">
       <button class="button button-clear" ng-click="closeModal()">Cancel</button>
       <h1 class="title">Add Stock</h1>
-      <button class="button button-clear" ng-click="addTask(item.task)" ng-disabled="addQuote.$invalid">Save</button>
+      <button class="button button-clear" ng-click="addTask(task)" ng-disabled="addQuote.$invalid">Save</button>
     </ion-header-bar>
     <ion-content>
       <!-- Use Ionic's CSS list and form classes to format forms -->
       <div class="list">
         <label class="item item-input">
           <span class="input-label">Task</span>
-          <input type="text" autocorrect="off" autocapitalize="off" ng-model="item.task" required />
+          <input type="text" autocorrect="off" autocapitalize="off" ng-model="task.task" required />
         </label>
-        
+
       </div>
     </ion-content>
   </form>

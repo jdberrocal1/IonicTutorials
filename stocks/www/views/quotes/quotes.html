@@ -4,39 +4,49 @@
     <button class="button button-clear" ng-click="state.reorder = !state.reorder">Reorder</button>
   </ion-nav-buttons>
 
-  <ion-nav-buttons side="secondary">
-    <button class="button button-clear" ng-click="goTodo()">Todo</button>
-  </ion-nav-buttons>
+  <!--<ion-nav-buttons side="secondary">-->
+    <!--<button class="button button-clear" ng-click="goTodo()">Todo</button>-->
+  <!--</ion-nav-buttons>-->
 
   <!-- ionContent is used to wrap scrollable content -->
   <ion-content>
-    <!-- ionRefresher activates when the user pulls down and calls getQuotes() -->
-    <ion-refresher on-refresh="getQuotes()"></ion-refresher>
-    <!-- ionList allows us to make a complex list with swipe buttons, reordering, and more -->
-    <ion-list show-reorder="state.reorder">
+    <!--&lt;!&ndash; ionRefresher activates when the user pulls down and calls getQuotes() &ndash;&gt;-->
+    <!--<ion-refresher on-refresh="getQuotes()"></ion-refresher>-->
+    <!--&lt;!&ndash; ionList allows us to make a complex list with swipe buttons, reordering, and more &ndash;&gt;-->
+    <!--<ion-list show-reorder="state.reorder">-->
+      <!--&lt;!&ndash; Repeat over each quote, to display the current details and name &ndash;&gt;-->
+      <!--<ion-item ng-repeat="stock in quotes" class="item-dark">-->
+        <!--<div class="quote" ng-class="quoteClass(stock)">-->
+          <!--<div class="quote-price">{{stock.LastTradePriceOnly | currency:'$'}}</div>-->
+          <!--<div class="quote-change">{{stock.Change}}</div>-->
+        <!--</div>-->
+        <!--{{stock.symbol}}-->
+        <!--&lt;!&ndash; Option and reorder button for list items &ndash;&gt;-->
+        <!--<ion-option-button class="button-assertive" ng-click="remove($index)">Remove</ion-option-button>-->
+        <!--<ion-reorder-button class="ion-navicon" on-reorder="reorder(stock, $fromIndex, $toIndex)">-->
+      <!--</ion-item>-->
+    <!--</ion-list>-->
+    <ion-refresher on-refresh="getTasks()"></ion-refresher>
+    <button class="button button-clear" ng-click="openModal()">Add Task</button>
+    <button class="button button-clear" ng-click="cleanDB()">Clean DB</button>
+    <ion-list>
       <!-- Repeat over each quote, to display the current details and name -->
-      <ion-item ng-repeat="stock in quotes" class="item-dark">
-        <div class="quote" ng-class="quoteClass(stock)">
-          <div class="quote-price">{{stock.LastTradePriceOnly | currency:'$'}}</div>
-          <div class="quote-change">{{stock.Change}}</div>
-        </div>
-        {{stock.symbol}}
-        <!-- Option and reorder button for list items -->
-        <ion-option-button class="button-assertive" ng-click="remove($index)">Remove</ion-option-button>
-        <ion-reorder-button class="ion-navicon" on-reorder="reorder(stock, $fromIndex, $toIndex)">
+      <ion-item ng-repeat="task in tasks" class="item-dark">
+        {{task}}
       </ion-item>
     </ion-list>
   </ion-content>
+
   <!-- Footer sits above the tabs and sticks -->
-  <ion-footer-bar class="bar-search">
-    <!-- Form to input a quote to add to the list -->
-    <form ng-submit="add()" class="list">
-      <div class="item item-input-inset">
-          <label class="item-input-wrapper">
-            <input type="search" placeholder="Symbol" ng-model="form.query">
-          </label>
-          <input type="submit" class="button button-small button-positive" value="Add" />
-      </div>
-    </form>
-  </ion-footer-bar>
+  <!--<ion-footer-bar class="bar-search">-->
+    <!--&lt;!&ndash; Form to input a quote to add to the list &ndash;&gt;-->
+    <!--<form ng-submit="add()" class="list">-->
+      <!--<div class="item item-input-inset">-->
+          <!--<label class="item-input-wrapper">-->
+            <!--<input type="search" placeholder="Symbol" ng-model="form.query">-->
+          <!--</label>-->
+          <!--<input type="submit" class="button button-small button-positive" value="Add" />-->
+      <!--</div>-->
+    <!--</form>-->
+  <!--</ion-footer-bar>-->
 </ion-view>

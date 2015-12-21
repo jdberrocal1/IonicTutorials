@@ -2,19 +2,17 @@ var db=null;
 angular.module('App', ['ionic','ngCordova'])
 
 .config(function($urlRouterProvider) {
-  $urlRouterProvider.otherwise('/tabs/todo');
+  $urlRouterProvider.otherwise('/tabs/quotes');
+
 })
 
 .run(function($ionicPlatform,$cordovaSQLite) {
   $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-    db = $cordovaSQLite.openDB("my.db");
+
+    db = $cordovaSQLite.openDB("taskDB");
         $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS task (id integer primary key, task text)");
+        $cordovaSQLite.execute(db, "INSERT INTO task (task) VALUES ('Initial Testing Task')");
+
     });
 
   });
