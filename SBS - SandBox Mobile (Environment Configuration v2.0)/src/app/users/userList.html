@@ -1,0 +1,11 @@
+<ion-view view-title="Users">
+  <ion-content>
+    <ion-refresher on-refresh="userList.getUsers()"></ion-refresher>
+    <ion-item ng-repeat="user in userList.users track by user.id" class="item-light" ng-click="userList.goToUser(user)">
+
+      {{user.name}}
+
+    </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

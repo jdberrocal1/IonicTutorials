@@ -27,12 +27,47 @@
     <script src="views/todo/todo.js"></script>
   </head>
   <body ng-app="App">
-  <!-- The ionNavBar updates the title and buttons as the application state changes -->
-  <ion-nav-bar class="bar-positive">
-    <!-- The ionNavBackButton knows when to show or hide based on current state -->
-    <ion-nav-back-button></ion-nav-back-button>
-  </ion-nav-bar>
-  <!-- Primary ionNavView which will load the views -->
-  <ion-nav-view></ion-nav-view>
+
+
+
+  <ion-side-menus>
+
+    <!-- Center content -->
+    <ion-side-menu-content>
+      <!-- The ionNavBar updates the title and buttons as the application state changes -->
+      <ion-nav-bar class="bar-positive">
+        <!-- The ionNavBackButton knows when to show or hide based on current state -->
+        <ion-nav-back-button></ion-nav-back-button>
+      </ion-nav-bar>
+
+      <!-- Primary ionNavView which will load the views -->
+      <ion-nav-view></ion-nav-view>
+    </ion-side-menu-content>
+
+    <!-- Left menu -->
+    <ion-side-menu side="left">
+      <ion-header-bar class="bar-dark">
+        <h1 class="title">Projects</h1>
+
+        </button>
+      </ion-header-bar>
+      <ion-content scroll="false">
+        <ion-list>
+          <ion-item>
+            <a href="/todo">Todo</a>
+          </ion-item>
+          <ion-item>
+            <a href="/tabs/quotes">Quotes</a>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-side-menu>
+
+
+
+  </ion-side-menus>
+
+
+
 </body>
 </html>

@@ -14,136 +14,82 @@ angular.module('App')
     });
 })
 
-.controller('QuotesController', function($scope, $ionicPopup, $ionicLoading, LocalStorageService, QuotesService,$location,$ionicModal,DataService,$rootScope) {
+.controller('QuotesController', function($scope, $ionicPopup, $ionicLoading, LocalStorageService, QuotesService) {
 
-  $rootScope.$on('$cordovaNetwork:online', function() {
-    console.log('Connected');
-
-  });
-  $rootScope.$on('$cordovaNetwork:offline', function() {
-    console.log('Disconected');
-
-  });
-
-  //// Get symbols from localstorage, set default values
-  //$scope.symbols = LocalStorageService.get('quotes', ['YHOO', 'AAPL', 'GOOG', 'MSFT', 'FB', 'TWTR']);
-  //$scope.form = {
-  //  query: ''
-  //};
-  //$scope.state = {
-  //  reorder: false
-  //};
-  //// Function to update the symbols in localstorage
-  //function updateSymbols() {
-  //  var symbols = [];
-  //  angular.forEach($scope.quotes, function(stock) {
-  //    symbols.push(stock.Symbol);
-  //  });
-  //  $scope.symbols = symbols;
-  //  LocalStorageService.update('quotes', symbols);
-  //}
-  //// Method to handle reordering of items in the list
-  //$scope.reorder = function(stock, $fromIndex, $toIndex) {
-  //  $scope.quotes.splice($fromIndex, 1);
-  //  $scope.quotes.splice($toIndex, 0, stock);
-  //  updateSymbols();
-  //};
-  //// Method to load quotes, or show an alert on error, and finally close the loader
-  //$scope.getQuotes = function() {
-  //  QuotesService.get($scope.symbols).then(function(quotes) {
-  //    $scope.quotes = quotes;
-  //  }, function(error) {
-  //    $ionicPopup.alert({
-  //      template: 'Could not load quotes right now. Please try again later.'
-  //    });
-  //  }).finally(function() {
-  //    $ionicLoading.hide();
-  //    $scope.$broadcast('scroll.refreshComplete');
-  //  });
-  //};
-  //// Method to load a quote's data and add it to the list, or show alert for not found
-  //$scope.add = function() {
-  //  if ($scope.form.query) {
-  //    QuotesService.get([$scope.form.query]).then(function(results) {
-  //      if (results[0].Name) {
-  //        $scope.symbols.push($scope.form.query);
-  //        $scope.quotes.push(results[0]);
-  //        $scope.form.query = '';
-  //        updateSymbols();
-  //      } else {
-  //        $ionicPopup.alert({
-  //          title: 'Could not locate symbol.'
-  //        });
-  //      }
-  //    });
-  //  }
-  //};
-  //// Method to remove a quote from the list
-  //$scope.remove = function($index) {
-  //  $scope.symbols.splice($index, 1);
-  //  $scope.quotes.splice($index, 1);
-  //  updateSymbols();
-  //};
-  //// Method to give a class based on the quote price vs closing
-  //$scope.quoteClass = function(quote) {
-  //  if (quote.PreviousClose < quote.LastTradePriceOnly) {
-  //    return 'positive';
-  //  }
-  //  if (quote.PreviousClose > quote.LastTradePriceOnly) {
-  //    return 'negative';
-  //  }
-  //  return '';
-  //};
-  //
-  //$scope.goTodo=function goTodo(){
-  //  $location.path('/tabs/todo');
-  //  console.log('go todo');
-  //}
-  //
-  //// Start by showing the loader the first time, and request the quotes
-  //$ionicLoading.show();
-  //$scope.getQuotes();
-
-  $scope.tasks=[];
-  $scope.task={};
-
-  $scope.addTask=function addTask(item){
-    DataService.addTask(item.task);
-    $scope.task.task='';
-    $scope.getTasks();
-    $scope.closeModal();
-  }
-
-  $scope.cleanDB= function cleanDB(){
-    DataService.cleanDB();
-    $scope.getTasks();
-  }
-
-  $scope.getTasks=function getTasks(){
-    $scope.tasks=DataService.getTasks();
-    console.log($scope.tasks);
-  }
-
-
-
-  // Create an Ionic modal instance for adding a new stock
-  $ionicModal.fromTemplateUrl('views/todo/add-task-modal.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-  // Open the modal
-  $scope.openModal = function() {
-    $scope.modal.show();
+  // Get symbols from localstorage, set default values
+  $scope.symbols = LocalStorageService.get('quotes', ['YHOO', 'AAPL', 'GOOG', 'MSFT', 'FB', 'TWTR']);
+  $scope.form = {
+    query: ''
   };
-  // Close the modal and reset the model
-  $scope.closeModal = function() {
-    $scope.item = {};
-    $scope.modal.hide();
+  $scope.state = {
+    reorder: false
   };
-  // Ensure the modal is completely destroyed after the scope is destroyed
-  $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
+  // Function to update the symbols in localstorage
+  function updateSymbols() {
+    var symbols = [];
+    angular.forEach($scope.quotes, function(stock) {
+      symbols.push(stock.Symbol);
+    });
+    $scope.symbols = symbols;
+    LocalStorageService.update('quotes', symbols);
+  }
+  // Method to handle reordering of items in the list
+  $scope.reorder = function(stock, $fromIndex, $toIndex) {
+    $scope.quotes.splice($fromIndex, 1);
+    $scope.quotes.splice($toIndex, 0, stock);
+    updateSymbols();
+  };
+  // Method to load quotes, or show an alert on error, and finally close the loader
+  $scope.getQuotes = function() {
+    QuotesService.get($scope.symbols).then(function(quotes) {
+      $scope.quotes = quotes;
+    }, function(error) {
+      $ionicPopup.alert({
+        template: 'Could not load quotes right now. Please try again later.'
+      });
+    }).finally(function() {
+      $ionicLoading.hide();
+      $scope.$broadcast('scroll.refreshComplete');
+    });
+  };
+  // Method to load a quote's data and add it to the list, or show alert for not found
+  $scope.add = function() {
+    if ($scope.form.query) {
+      QuotesService.get([$scope.form.query]).then(function(results) {
+        if (results[0].Name) {
+          $scope.symbols.push($scope.form.query);
+          $scope.quotes.push(results[0]);
+          $scope.form.query = '';
+          updateSymbols();
+        } else {
+          $ionicPopup.alert({
+            title: 'Could not locate symbol.'
+          });
+        }
+      });
+    }
+  };
+  // Method to remove a quote from the list
+  $scope.remove = function($index) {
+    $scope.symbols.splice($index, 1);
+    $scope.quotes.splice($index, 1);
+    updateSymbols();
+  };
+  // Method to give a class based on the quote price vs closing
+  $scope.quoteClass = function(quote) {
+    if (quote.PreviousClose < quote.LastTradePriceOnly) {
+      return 'positive';
+    }
+    if (quote.PreviousClose > quote.LastTradePriceOnly) {
+      return 'negative';
+    }
+    return '';
+  };
+
+  // Start by showing the loader the first time, and request the quotes
+  $ionicLoading.show();
+  $scope.getQuotes();
+
+
 
 });

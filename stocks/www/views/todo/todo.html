@@ -5,15 +5,16 @@
     <button class="button button-clear" ng-click="openModal()">Add</button>
   </ion-nav-buttons>
   <ion-nav-buttons side="secondary">
-    <button class="button button-clear" ng-click="state.reorder = !state.reorder">Todo</button>
+    <button class="button button-clear" ng-click="cleanDB()">Clean DB</button>
   </ion-nav-buttons>
 
   <!-- ionContent is used to wrap scrollable content -->
   <ion-content>
 
-  <ion-refresher on-refresh="getTasks()"></ion-refresher>
-  <button class="button button-clear" ng-click="openModal()">new task</button>
-   <ion-list>
+    <!--<ion-refresher on-refresh="getTasks()"></ion-refresher>-->
+    <button class="button button-clear" ng-click="openModal()">Add Task</button>
+    <!--<button class="button button-clear" ng-click="cleanDB()">Clean DB</button>-->
+    <ion-list>
       <!-- Repeat over each quote, to display the current details and name -->
       <ion-item ng-repeat="task in tasks" class="item-dark">
         {{task}}
@@ -22,6 +23,6 @@
   </ion-content>
   <!-- Footer sits above the tabs and sticks -->
   <ion-footer-bar class="bar-search">
-    
+
   </ion-footer-bar>
 </ion-view>
