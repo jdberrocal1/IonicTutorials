@@ -32,6 +32,16 @@
           controller: 'menuController',
           controllerAs:'menu'
         })
+        .state('app.camera', {
+          url: '/camera',
+          views: {
+            'menuContent': {
+              templateUrl: 'app/camera/camera.html',
+              controller: 'cameraController',
+              controllerAs:'camera'
+            }
+          }
+        })
         .state('app.users', {
           url: '/users',
           views: {
