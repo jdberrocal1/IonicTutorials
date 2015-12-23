@@ -20,7 +20,10 @@ var paths = {
   htmlIndexDest : './www/',
   //lib Folder
   libFolderSrc : ['./src/lib/**/*'],
-  libFolderDest: './www/lib'
+  libFolderDest: './www/lib',
+  //Img
+  imgFilesSrc: ['./src/img/**/*'],
+  imgFilesDest : './www/img',
 };
 
 /*General*/
@@ -42,6 +45,11 @@ gulp.task('copyJSFiles', function() {
 gulp.task('copyLibFolder', function () {
   return gulp.src(paths.libFolderSrc)
     .pipe(gulp.dest(paths.libFolderDest));
+});
+
+gulp.task('copyImg', function () {
+  return gulp.src(paths.imgFilesSrc)
+    .pipe(gulp.dest(paths.imgFilesDest));
 });
 
 gulp.task('inject', function () {
@@ -68,7 +76,7 @@ gulp.task('sass', function (done) {
 });
 
 gulp.task('default', function (callback) {
-  runSequence (['copyIndex', 'copyIndexFiles', 'copyJSFiles', 'copyLibFolder', 'sass'], 'inject');/*, 'sass'],'inject', 'watch');*/
+  runSequence (['copyIndex', 'copyIndexFiles', 'copyJSFiles', 'copyLibFolder', 'copyImg','sass'], 'inject');/*, 'sass'],'inject', 'watch');*/
 });
 
 gulp.task('depends', function (callback) {

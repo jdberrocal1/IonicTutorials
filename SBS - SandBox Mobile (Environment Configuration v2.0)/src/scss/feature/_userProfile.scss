@@ -1,0 +1,40 @@
+.userProfile{
+  margin: 10px !important;
+}
+.userInfo{
+  margin-left: 15px !important;
+  margin-bottom: 10px !important;
+
+  h3{
+    color: $primary-color !important;
+    margin-bottom: 0 !important;
+  }
+  p{
+    margin-bottom:0 !important;
+  }
+}
+
+.userName{
+  color: $secondary-color !important;
+  margin-left: 5px !important;
+}
+
+.infoHeader{
+  margin-top: 10px !important;
+  h4{
+    min-width: 80px;
+    color: $primary-color !important;
+    margin: 0 10px 0 0 !important;
+  }
+
+  hr{
+    margin-top: 11px !important;
+  }
+}
+
+.infoBody{
+  margin-top: 5px !important;
+  margin-left: 10px !important;
+}
+
+

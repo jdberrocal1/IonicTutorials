@@ -1,2 +1,35 @@
-p {
-  background-color: blue; }
+ion-header-bar {
+  border-bottom: 2px solid #F24C27 !important;
+  background-color: #024959 !important;
+  color: white !important; }
+  ion-header-bar h1 {
+    color: white !important; }
+
+.userProfile {
+  margin: 10px !important; }
+
+.userInfo {
+  margin-left: 15px !important;
+  margin-bottom: 10px !important; }
+  .userInfo h3 {
+    color: #024959 !important;
+    margin-bottom: 0 !important; }
+  .userInfo p {
+    margin-bottom: 0 !important; }
+
+.userName {
+  color: #F24C27 !important;
+  margin-left: 5px !important; }
+
+.infoHeader {
+  margin-top: 10px !important; }
+  .infoHeader h4 {
+    min-width: 80px;
+    color: #024959 !important;
+    margin: 0 10px 0 0 !important; }
+  .infoHeader hr {
+    margin-top: 11px !important; }
+
+.infoBody {
+  margin-top: 5px !important;
+  margin-left: 10px !important; }
