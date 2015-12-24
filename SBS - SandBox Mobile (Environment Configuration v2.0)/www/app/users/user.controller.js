@@ -32,7 +32,6 @@
           .then(function(response){
             vm.user=response.data;
             vm.user.username='('+vm.user.username+')';
-            console.log(vm.user);
           }, function(error) {
 
             $ionicPopup.alert({

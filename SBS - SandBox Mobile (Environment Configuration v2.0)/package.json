@@ -1,7 +1,7 @@
 {
-  "name": "Admin Users",
+  "name": "sbs---sandbox-mobile",
   "version": "1.1.1",
-  "description": "Admin Users",
+  "description": " SandBox Mobile (Environment Configuration v2.0)",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
