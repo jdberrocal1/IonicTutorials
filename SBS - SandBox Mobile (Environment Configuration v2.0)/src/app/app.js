@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('app', ['ionic'])
+  angular.module('app', ['ionic','ngCordova'])
 
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {
