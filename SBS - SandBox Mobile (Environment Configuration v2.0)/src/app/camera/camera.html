@@ -3,6 +3,6 @@
 
     <buton ng-click="camera.takeAPicture()" class="button button-block button-positive">Take a Picture</buton>
     <buton ng-click="camera.getPictureFromGallery()" class="button button-block button-dark">Get a Picture From Gallery</buton>
-    <img ng-src="{{camera.picture.imgURI}}" alt="picture" width="100%">
+    <img ng-if="camera.picture.imgURI" ng-src="{{camera.picture.imgURI}}" alt="picture" width="100%">
   </ion-content>
 </ion-view>
