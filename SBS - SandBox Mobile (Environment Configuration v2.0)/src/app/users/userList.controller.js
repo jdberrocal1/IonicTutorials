@@ -31,10 +31,9 @@
         UserService.getUsers()
           .then(function(response){
             vm.users=response.data;
-            console.log(vm.users);
           }, function(error) {
               $ionicPopup.alert({
-                template: 'Could not load quotes right now. Please try again later.'
+                template: 'Could not load users right now. Please try again later.'
               });
           })
           .finally(function() {
@@ -44,7 +43,6 @@
       }
 
       vm.goToUser=function goToUser(user){
-        console.log(user);
         $location.path('app/users/user/'+user.id);
       }
 

@@ -1,0 +1,12 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Get Image From...</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="user.closeModal()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <buton ng-click="user.getPictureFromCamera()" class="button button-block button-positive">Camera</buton>
+    <buton ng-click="user.getPictureFromGallery()" class="button button-block button-dark">Gallery</buton>
+  </ion-content>
+</ion-modal-view>

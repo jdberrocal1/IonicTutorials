@@ -4,7 +4,7 @@
     <div class="userProfile">
       <div class="row">
         <div class="col-25">
-          <img ng-src="img/ionic.png" width="100%" alt="User">
+          <img ng-src="{{user.photo}}" width="100%" alt="User" ng-click="user.openGetPhotoModal()">
         </div>
         <div class="col-75 userInfo">
           <h3>{{::user.user.name}}<small class="userName">{{::user.user.username}}</small></h3>

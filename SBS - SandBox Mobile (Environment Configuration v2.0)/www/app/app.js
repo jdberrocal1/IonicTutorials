@@ -1,8 +1,9 @@
+var db = null;
 (function() {
   'use strict';
-  angular.module('app', ['ionic'])
+  angular.module('app', ['ionic','ngCordova'])
 
-    .run(function($ionicPlatform) {
+    .run(function($ionicPlatform,$cordovaSQLite) {
       $ionicPlatform.ready(function() {
         if(window.cordova && window.cordova.plugins.Keyboard) {
           // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -17,6 +18,9 @@
         if(window.StatusBar) {
           StatusBar.styleDefault();
         }
+        db = $cordovaSQLite.openDB("db");
+
+        $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS user (id integer primary key, idUser integer, photo text)");
       });
     })
 
@@ -32,16 +36,16 @@
           controller: 'menuController',
           controllerAs:'menu'
         })
-        .state('app.camera', {
-          url: '/camera',
-          views: {
-            'menuContent': {
-              templateUrl: 'app/camera/camera.html',
-              controller: 'cameraController',
-              controllerAs:'camera'
-            }
-          }
-        })
+        //.state('app.camera', {
+        //  url: '/camera',
+        //  views: {
+        //    'menuContent': {
+        //      templateUrl: 'app/camera/camera.html',
+        //      controller: 'cameraController',
+        //      controllerAs:'camera'
+        //    }
+        //  }
+        //})
         .state('app.users', {
           url: '/users',
           views: {

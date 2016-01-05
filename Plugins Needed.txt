@@ -1,0 +1,9 @@
+to get images from gallery
+$ cordova plugin add https://github.com/wymsee/cordova-imagePicker.git
+
+to use the camera
+$ cordova plugin add org.apache.cordova.camera
+
+SQLite	
+$cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
+
