@@ -1,0 +1,46 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Device Information</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeModal()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <!--<form ng-submit="doLogin()">-->
+      <!--<div class="list">-->
+        <!--<label class="item item-input">-->
+          <!--<span class="input-label">Username</span>-->
+          <!--<input type="text" ng-model="loginData.username">-->
+        <!--</label>-->
+        <!--<label class="item item-input">-->
+          <!--<span class="input-label">Password</span>-->
+          <!--<input type="password" ng-model="loginData.password">-->
+        <!--</label>-->
+        <!--<label class="item">-->
+          <!--<button class="button button-block button-positive" type="submit">Log in</button>-->
+        <!--</label>-->
+      <!--</div>-->
+    <!--</form>-->
+    <div class="row ">
+      <div class="col-50">
+        <p><b>isWebView:</b></p>
+        <p><b>isIPad:</b></p>
+        <p><b>isIOS:</b></p>
+        <p><b>isAndroid:</b></p>
+        <p><b>isWindowsPhone:</b></p>
+        <p><b>currentPlatform:</b></p>
+        <p><b>currentPlatformVersion:</b></p>
+      </div>
+      <div class="col-50">
+        <p ng-bind="::platform.isWebView "></p>
+        <p ng-bind="::platform.isIPad "></p>
+        <p ng-bind="::platform.isIOS "></p>
+        <p ng-bind="::platform.isAndroid "></p>
+        <p ng-bind="::platform.isWindowsPhone "></p>
+        <p ng-bind="::platform.currentPlatform "></p>
+        <p ng-bind="::platform.currentPlatformVersion "></p>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

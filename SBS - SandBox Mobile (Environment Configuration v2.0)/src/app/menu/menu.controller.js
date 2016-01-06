@@ -11,44 +11,52 @@
       $ionicModal,
       $timeout,
       $scope){
-      //var vm = this;
-      // With the new view caching in Ionic, Controllers are only called
-      // when they are recreated or on app start, instead of every page change.
-      // To listen for when this page is active (for example, to refresh data),
-      // listen for the $ionicView.enter event:
-      //$scope.$on('$ionicView.enter', function(e) {
-      //});
 
       // Form data for the login modal
       $scope.loginData = {};
 
       // Create the login modal that we will use later
-      $ionicModal.fromTemplateUrl('app/menu/loginModal.html', {
+      $ionicModal.fromTemplateUrl('app/menu/InfoModal.html', {
         scope: $scope
       }).then(function(modal) {
         $scope.modal = modal;
       });
 
       // Triggered in the login modal to close it
-      $scope.closeLogin = function() {
+      $scope.closeModal = function() {
         $scope.modal.hide();
       };
 
       // Open the login modal
-      $scope.login = function() {
+      $scope.info = function() {
         $scope.modal.show();
       };
 
       // Perform the login action when the user submits the login form
       $scope.doLogin = function() {
-        console.log('Doing login', $scope.loginData);
+        //console.log('Doing login', $scope.loginData);
+        //
+        //// Simulate a login delay. Remove this and replace with your login
+        //// code if using a login system
+        //$timeout(function() {
+        //  $scope.closeLogin();
+        //}, 1000);
 
-        // Simulate a login delay. Remove this and replace with your login
-        // code if using a login system
-        $timeout(function() {
-          $scope.closeLogin();
-        }, 1000);
       };
+
+      /*--------------------------------------------------------------------------TESTING--------------------------------------------------------------------------*/
+      /*Get the platform information*/
+      $scope.platform= {
+        //deviceInformation: ionic.Platform.device(),
+        isWebView: ionic.Platform.isWebView(),
+        isIPad: ionic.Platform.isIPad(),
+        isIOS: ionic.Platform.isIOS(),
+        isAndroid: ionic.Platform.isAndroid(),
+        isWindowsPhone: ionic.Platform.isWindowsPhone(),
+        currentPlatform: ionic.Platform.platform(),
+        currentPlatformVersion: ionic.Platform.version()
+      }
+
     }
   ])
 })();

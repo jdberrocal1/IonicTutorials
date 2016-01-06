@@ -130,6 +130,10 @@
       vm.cleanDB = function cleanDB(){
         DBService.cleanDB()
       }
+
+
+
+
       //vm.cleanDB();
       $ionicLoading.show();
       vm.getUser();
