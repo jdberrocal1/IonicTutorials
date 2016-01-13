@@ -30,9 +30,17 @@
 
         <script src="app/app.js"></script>
 
-        <script src="app/camera/CameraService.js"></script>
+        <script src="app/app/app.controller.js"></script>
 
-        <script src="app/db/DBService.js"></script>
+        <script src="app/login/AuthEventsConstants.js"></script>
+
+        <script src="app/login/AuthInterceptorService.js"></script>
+
+        <script src="app/login/login.controler.js"></script>
+
+        <script src="app/login/LoginService.js"></script>
+
+        <script src="app/login/UserRolesConstants.js"></script>
 
         <script src="app/menu/menu.controller.js"></script>
 
@@ -42,10 +50,14 @@
 
         <script src="app/users/UserService.js"></script>
 
+        <script src="app/db/DBService.js"></script>
+
+        <script src="app/camera/CameraService.js"></script>
+
         <!-- endinject -->
 
     </head>
-    <body ng-app="app">
+    <body ng-app="app" ng-controller="appController">
       <ion-nav-view></ion-nav-view>
     </body>
 </html>

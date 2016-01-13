@@ -5,8 +5,8 @@
  * Created by jberrocal-as on 22/12/2015.
  */
 (function () {
-  var controllerId = 'CameraService';
-  angular.module('app').service(controllerId, [
+  var serviceId = 'CameraService';
+  angular.module('app').service(serviceId, [
     '$cordovaImagePicker',
     function (
       $cordovaImagePicker

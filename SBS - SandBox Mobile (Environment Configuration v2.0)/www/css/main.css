@@ -28,8 +28,11 @@ ion-header-bar {
     color: #024959 !important;
     margin: 0 10px 0 0 !important; }
   .infoHeader hr {
-    margin-top: 11px !important; }
+    margin-top: 13px !important; }
 
 .infoBody {
   margin-top: 5px !important;
-  margin-left: 10px !important; }
+  margin-left: 10px !important;
+  padding-bottom: 1px; }
+  .infoBody p {
+    margin-bottom: 0px; }

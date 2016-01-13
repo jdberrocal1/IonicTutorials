@@ -7,10 +7,14 @@
     '$ionicModal',
     '$timeout',
     '$scope',
+    'LoginService',
+    '$state',
     function (
       $ionicModal,
       $timeout,
-      $scope){
+      $scope,
+      LoginService,
+      $state){
 
       // Form data for the login modal
       $scope.loginData = {};
@@ -32,8 +36,10 @@
         $scope.modal.show();
       };
 
-      // Perform the login action when the user submits the login form
-      $scope.doLogin = function() {
+
+      $scope.logout = function logout() {
+        LoginService.logout();
+        $state.go('login');
         //console.log('Doing login', $scope.loginData);
         //
         //// Simulate a login delay. Remove this and replace with your login

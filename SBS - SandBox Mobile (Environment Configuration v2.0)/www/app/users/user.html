@@ -21,15 +21,32 @@
       <div class="row infoBody">
         <div class="col-25">
           <p><b>Suite:</b></p>
-          <p><b>Street:</b></p>
-          <p><b>City:</b></p>
-          <p><b>Zipcode:</b></p>
-
         </div>
         <div class="col-75">
           <p name="suite" id="suite" ng-bind="::user.user.address.suite"></p>
+        </div>
+      </div>
+      <div class="row infoBody">
+        <div class="col-25">
+          <p><b>Street:</b></p>
+        </div>
+        <div class="col-75">
           <p name="street" id="street" ng-bind="::user.user.address.street"></p>
+        </div>
+      </div>
+      <div class="row infoBody">
+        <div class="col-25">
+          <p><b>City:</b></p>
+        </div>
+        <div class="col-75">
           <p name="city" id="city" ng-bind="::user.user.address.city"></p>
+        </div>
+      </div>
+      <div class="row infoBody">
+        <div class="col-25">
+          <p><b>Zipcode:</b></p>
+        </div>
+        <div class="col-75">
           <p name="zipcode" id="zipcode" ng-bind="::user.user.address.zipcode"></p>
         </div>
       </div>
@@ -40,12 +57,24 @@
       <div class="row infoBody">
         <div class="col-25">
           <p><b>Name:</b></p>
-          <p><b>Catchphrase:</b></p>
-          <p><b>Bs:</b></p>
         </div>
         <div class="col-75">
           <p name="companyName" id="companyName" ng-bind="::user.user.company.name"></p>
+        </div>
+      </div>
+      <div class="row infoBody">
+        <div class="col-25">
+          <p><b>Catch Phrase:</b></p>
+        </div>
+        <div class="col-75">
           <p name="catchPhrase" id="catchPhrase" ng-bind="::user.user.company.catchPhrase"></p>
+        </div>
+      </div>
+      <div class="row infoBody">
+        <div class="col-25">
+          <p><b>Bs:</b></p>
+        </div>
+        <div class="col-75">
           <p name="bs" id="bs" ng-bind="::user.user.company.bs"></p>
         </div>
       </div>

@@ -24,52 +24,78 @@ var db = null;
       });
     })
 
-  .config([
-    '$stateProvider',
-    '$urlRouterProvider',
-    function($stateProvider, $urlRouterProvider){
-      $stateProvider
-        .state('app', {
-          url: '/app',
-          abstract: true,
-          templateUrl: 'app/menu/menu.html',
-          controller: 'menuController',
-          controllerAs:'menu'
-        })
-        //.state('app.camera', {
-        //  url: '/camera',
-        //  views: {
-        //    'menuContent': {
-        //      templateUrl: 'app/camera/camera.html',
-        //      controller: 'cameraController',
-        //      controllerAs:'camera'
-        //    }
-        //  }
-        //})
-        .state('app.users', {
-          url: '/users',
-          views: {
-            'menuContent': {
-              templateUrl: 'app/users/userList.html',
-              controller: 'userListController',
-              controllerAs:'userList'
+    .config([
+      '$stateProvider',
+      '$urlRouterProvider',
+      'USER_ROLES',
+      function($stateProvider, $urlRouterProvider,USER_ROLES){
+        $stateProvider
+          .state('login', {
+            url: '/login',
+            //abstract: true,
+            templateUrl: 'app/login/login.html',
+            controller: 'loginController',
+            controllerAs:'login'
+          })
+          .state('app', {
+            url: '/app',
+            abstract: true,
+            templateUrl: 'app/menu/menu.html',
+            controller: 'menuController',
+            controllerAs:'menu'
+          })
+          .state('app.users', {
+            url: '/users',
+            views: {
+              'menuContent': {
+                templateUrl: 'app/users/userList.html',
+                controller: 'userListController',
+                controllerAs:'userList'
+              }
             }
-          }
-        })
-        .state('app.user', {
-          url: "/users/user/:id",
-          views: {
-            'menuContent': {
-              templateUrl: 'app/users/user.html',
-              controller: 'userController',
-              controllerAs: 'user'
+          })
+          .state('app.user', {
+            url: "/users/user/:id",
+            views: {
+              'menuContent': {
+                templateUrl: 'app/users/user.html',
+                controller: 'userController',
+                controllerAs: 'user'
+              }
+            },
+            data: {
+              authorizedRoles: [USER_ROLES.admin]
             }
+          });
+        // if none of the above states are matched, use this as the fallback
+        $urlRouterProvider.otherwise('/app/users');
+      }
+    ])
+
+    .config(function ($httpProvider) {
+      $httpProvider.interceptors.push('AuthInterceptor');
+    })
+
+    .run(function ($rootScope, $state, LoginService, AUTH_EVENTS) {
+      $rootScope.$on('$stateChangeStart', function (event,next, nextParams, fromState) {
+
+        if ('data' in next && 'authorizedRoles' in next.data) {
+          var authorizedRoles = next.data.authorizedRoles;
+          if (!LoginService.isAuthorized(authorizedRoles)) {
+            event.preventDefault();
+            $state.go($state.current, {}, {reload: true});
+            $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
           }
-        });
-      // if none of the above states are matched, use this as the fallback
-      $urlRouterProvider.otherwise('/app/users');
-    }
-  ]);
+        }
+
+        if (!LoginService.isAuthenticated()) {
+          if (next.name !== 'login') {
+            event.preventDefault();
+            $state.go('login');
+          }
+        }
+      });
+  });
 })();
 
 
