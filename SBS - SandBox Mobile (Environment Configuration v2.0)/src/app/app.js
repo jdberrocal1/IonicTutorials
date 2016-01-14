@@ -21,6 +21,42 @@ var db = null;
         db = $cordovaSQLite.openDB("db");
 
         $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS user (id integer primary key, idUser integer, photo text)");
+
+        var appId='ZEhJJwrifNedqjaHRzOCC7q1SJIBwCPkDE1F1iNE';
+        var clientKey='3AMGHs2hsU1WQW8m33vbVTKK2UJYWBPpT8aAG22W';
+
+        parsePlugin.initialize(appId, clientKey, function() {
+
+          parsePlugin.subscribe('SampleChannel', function() {
+
+            parsePlugin.getInstallationId(function(id) {
+
+              /**
+               * Now you can construct an object and save it to your own services, or Parse, and corrilate users to parse installations
+               *
+               var install_data = {
+            installation_id: id,
+            channels: ['SampleChannel']
+         }
+               *
+               */
+              var install_data = {
+                installation_id: id,
+                channels: ['SampleChannel']
+              }
+
+            }, function(e) {
+              alert('error');
+            });
+
+          }, function(e) {
+            alert('error');
+          });
+
+        }, function(e) {
+          alert('error');
+        });
+
       });
     })
 

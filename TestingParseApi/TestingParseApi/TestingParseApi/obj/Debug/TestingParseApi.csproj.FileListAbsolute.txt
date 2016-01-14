@@ -1,0 +1,12 @@
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\bin\Debug\TestingParseApi.exe.config
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\bin\Debug\TestingParseApi.exe
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\bin\Debug\TestingParseApi.pdb
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\bin\Debug\Parse.dll
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\bin\Debug\Parse.NetFx45.dll
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\bin\Debug\Parse.xml
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\bin\Debug\Parse.NetFx45.xml
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\obj\Debug\TestingParseApi.csprojResolveAssemblyReference.cache
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\obj\Debug\TestingParseApi.exe
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\obj\Debug\TestingParseApi.pdb
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jberrocal-as\Desktop\TestingParseApi\TestingParseApi\TestingParseApi\bin\Debug\Newtonsoft.Json.xml
