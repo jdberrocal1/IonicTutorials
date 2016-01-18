@@ -1,9 +1,6 @@
 /**
  * Created by jberrocal-as on 22/12/2015.
  */
-/**
- * Created by jberrocal-as on 22/12/2015.
- */
 
 (function () {
   var controllerId = 'userController';

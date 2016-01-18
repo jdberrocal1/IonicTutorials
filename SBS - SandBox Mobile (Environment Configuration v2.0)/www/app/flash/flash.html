@@ -1,0 +1,15 @@
+<ion-view view-title="Flashlight">
+  <ion-content>
+    <div class="row" ng-if="flash.batteryLevel!=''">
+      <div class="col-33">
+        <b>Battery Status: </b>
+      </div>
+      <div class="col-50">
+        <p>{{flash.batteryLevel}}%</p>
+      </div>
+    </div>
+
+    <buton ng-click="flash.toggle()" class="button button-block" ng-class="flash.isOn ? 'button-dark' : 'button-positive'">{{flash.isOnMsg}}</buton>
+  </ion-content>
+</ion-view>
+

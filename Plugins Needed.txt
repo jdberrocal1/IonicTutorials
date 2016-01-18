@@ -9,3 +9,9 @@ $cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
 
 NetworkInformation
 $cordova plugin add org.apache.cordova.network-information
+
+Flashlight
+cordova plugin add https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git
+
+Battery
+cordova plugin add cordova-plugin-battery-status

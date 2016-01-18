@@ -80,6 +80,16 @@ var db = null;
             controller: 'menuController',
             controllerAs:'menu'
           })
+          .state('app.flash', {
+            url: '/flash',
+            views: {
+              'menuContent': {
+                templateUrl: 'app/flash/flash.html',
+                controller: 'flashController',
+                controllerAs:'flash'
+              }
+            }
+          })
           .state('app.users', {
             url: '/users',
             views: {

@@ -45,13 +45,9 @@
 
 
       document.addEventListener("deviceready", function () {
-
         var type = $cordovaNetwork.getNetwork()
-
         var isOnline = $cordovaNetwork.isOnline()
-
         var isOffline = $cordovaNetwork.isOffline()
-
 
         // listen for Online event
         $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
