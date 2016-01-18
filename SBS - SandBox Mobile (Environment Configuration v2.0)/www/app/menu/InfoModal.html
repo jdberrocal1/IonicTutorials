@@ -23,6 +23,7 @@
     <!--</form>-->
     <div class="row ">
       <div class="col-50">
+        <p><b>UUID (Device Id):</b></p>
         <p><b>isWebView:</b></p>
         <p><b>isIPad:</b></p>
         <p><b>isIOS:</b></p>
@@ -30,15 +31,17 @@
         <p><b>isWindowsPhone:</b></p>
         <p><b>currentPlatform:</b></p>
         <p><b>currentPlatformVersion:</b></p>
+
       </div>
       <div class="col-50">
+        <p ng-bind="::platform.uuId "></p>
         <p ng-bind="::platform.isWebView "></p>
         <p ng-bind="::platform.isIPad "></p>
         <p ng-bind="::platform.isIOS "></p>
         <p ng-bind="::platform.isAndroid "></p>
         <p ng-bind="::platform.isWindowsPhone "></p>
         <p ng-bind="::platform.currentPlatform "></p>
-        <p ng-bind="::platform.currentPlatformVersion "></p>
+
 
       </div>
     </div>

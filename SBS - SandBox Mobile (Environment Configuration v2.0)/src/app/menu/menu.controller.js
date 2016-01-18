@@ -9,12 +9,14 @@
     '$scope',
     'LoginService',
     '$state',
+    '$cordovaDevice',
     function (
       $ionicModal,
       $timeout,
       $scope,
       LoginService,
-      $state){
+      $state,
+      $cordovaDevice){
 
       // Form data for the login modal
       $scope.loginData = {};
@@ -52,6 +54,21 @@
 
       /*--------------------------------------------------------------------------TESTING--------------------------------------------------------------------------*/
       /*Get the platform information*/
+
+      var init = function () {
+        console.log("initializing device");
+        try {
+
+          $scope.platform.uuId=$cordovaDevice.getUUID();
+
+        }
+        catch (err) {
+          console.log("Error " + err.message);
+          alert("error " + err.$$failure.message);
+        }
+
+      };
+
       $scope.platform= {
         //deviceInformation: ionic.Platform.device(),
         isWebView: ionic.Platform.isWebView(),
@@ -62,6 +79,12 @@
         currentPlatform: ionic.Platform.platform(),
         currentPlatformVersion: ionic.Platform.version()
       }
+
+      ionic.Platform.ready(function(){
+        init();
+      });
+
+
 
     }
   ])

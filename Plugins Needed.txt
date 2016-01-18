@@ -7,3 +7,5 @@ $ cordova plugin add org.apache.cordova.camera
 SQLite	
 $cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
 
+NetworkInformation
+$cordova plugin add org.apache.cordova.network-information

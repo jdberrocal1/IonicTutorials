@@ -10,12 +10,16 @@
     '$ionicPopup',
     'LoginService',
     'AUTH_EVENTS',
+    '$rootScope',
+    '$cordovaNetwork',
     function (
       $scope,
       $state,
       $ionicPopup,
       LoginService,
-      AUTH_EVENTS)
+      AUTH_EVENTS,
+      $rootScope,
+      $cordovaNetwork)
     {
       $scope.username = LoginService.username();
 
@@ -38,6 +42,24 @@
       $scope.setCurrentUsername = function(name) {
         $scope.username = name;
       };
+
+
+      document.addEventListener("deviceready", function () {
+        var type = $cordovaNetwork.getNetwork()
+        var isOnline = $cordovaNetwork.isOnline()
+        var isOffline = $cordovaNetwork.isOffline()
+
+        // listen for Online event
+        $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+          var alertPopup = $ionicPopup.alert({
+            title: 'Connection Lost!',
+            template: 'Sorry, You have no internet access!'
+          });
+        })
+
+      }, false);
+
+
     }
   ])
 })();
